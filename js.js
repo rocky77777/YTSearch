@@ -20,7 +20,7 @@ function getRequest(searchTerm) {
 	$.getJSON(url, params, function(data) {
 		console.log("data is", data);
 		OBJ = data;
-		showResults(data);
+		showResults(data.items);
 	});
 }
 
@@ -28,7 +28,7 @@ function showResults (results) {
 	var html = "";
 	$.each(results, function(index,value) {
 		console.log("test");
-		html += "<p>" + value.items + "</p>";
+		html += "<p><img src='" + value.snippet.thumbnails.medium.url + "'/></p>";
 	});
 	$("#search-results").html(html);
 };
